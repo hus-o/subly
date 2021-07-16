@@ -33,7 +33,7 @@ function App(): JSX.Element {
     <div className="flex justify-evenly">
       {data ? data.map((element:DataArray,index: number) =>{
       return (
-        <Card key={index} name={element.name} cover={element.cover} languages={element.languages} status={element.status} errorMessage={element.errorMessage}/>
+        <Card key={index} name={element.name} cover={element.cover} languages={element.languages} status={element.status} errorMessage={element.errorMessage} updatedAt={element.updatedAt}/>
       )
       }) : 
       <h2>Loading</h2>}

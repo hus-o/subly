@@ -1,9 +1,18 @@
+import { useEffect, useState } from "react"
 import { CardProps } from "./Card"
 
+
 // this components handles media with the status "ready"
-function ReadyCard({name, cover, languages, status}: CardProps): JSX.Element {
+function ReadyCard({name, cover, languages, updatedAt}: CardProps): JSX.Element {
+    const [date,setDate] = useState<string>("")
+
+    useEffect(() => {
+        const formattedDate = new Date(updatedAt).toLocaleString("en-GB")
+        setDate(formattedDate)
+    },[updatedAt])
+
     return(
-        <div className="h-60 w-80 m-5 shadow-lg rounded-lg">
+        <div className="h-60 w-80 m-5 shadow-lg">
             <div className="group h-3/4 relative">
                 <img className="h-full w-full object-cover object-center" src={cover} alt="cover" />
                 <div className="inset-0 absolute h-full w-full group-hover:bg-black group-hover:opacity-50"></div>
@@ -17,7 +26,7 @@ function ReadyCard({name, cover, languages, status}: CardProps): JSX.Element {
             </div>
             <div className="m-2">
                 <div className="font-bold">{name}</div>
-                <div className="text-gray-500 text-sm">{status.toUpperCase()}</div>
+                <div className="text-gray-500 text-sm">{`Last edited ${date}`}</div>
             </div>
         </div>
     )

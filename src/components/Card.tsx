@@ -7,12 +7,13 @@ export interface CardProps{
     cover: string,
     languages:string[],
     status:string,
-    errorMessage?:string
+    errorMessage?:string,
+    updatedAt:string
 }
 
-function Card({status, name, cover, languages, errorMessage}: CardProps): JSX.Element {
+function Card({status, name, cover, languages, errorMessage, updatedAt}: CardProps): JSX.Element {
     if (status === "ready"){
-        return <ReadyCard name={name} cover={cover} languages={languages} status={status}/>
+        return <ReadyCard name={name} cover={cover} languages={languages} status={status} updatedAt={updatedAt}/>
     }
     else if (status === "transcribing"){
         return <TranscribingCard name={name} cover={cover} status={status} />
