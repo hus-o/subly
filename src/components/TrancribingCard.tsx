@@ -1,7 +1,7 @@
 interface TranscribingProps{
     name: string,
     cover: string,
-    status:string,
+    status: "transcribing",
 }
 
 // This component renders media with status "transcribing". I initially imported CardProps as the type but opted for a new type rather than setting some properties as optional in CardProp.

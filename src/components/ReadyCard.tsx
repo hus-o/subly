@@ -1,9 +1,16 @@
 import { useEffect, useState } from "react"
-import { CardProps } from "./Card"
 
+// I initially imported CardProps interface but wanted to have status as just "ready" so I made this instead. 
+interface ReadyProps{
+    name: string,
+    cover: string,
+    languages:string[],
+    status: "ready",
+    updatedAt:string
+}
 
 // this components handles media with the status "ready"
-function ReadyCard({name, cover, languages, updatedAt}: CardProps): JSX.Element {
+function ReadyCard({name, cover, languages, updatedAt}: ReadyProps): JSX.Element {
     const [date,setDate] = useState<string>("")
 
     useEffect(() => {

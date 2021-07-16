@@ -1,9 +1,10 @@
 interface ErrorProps{
     name: string,
     cover: string,
-    status:string,
+    status: "error",
     errorMessage?:string
 }
+
 function ErrorCard({status, name, cover, errorMessage}: ErrorProps): JSX.Element {
     return(
         <div className="h-60 w-80 m-5 shadow-lg">
