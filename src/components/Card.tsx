@@ -15,10 +15,10 @@ function Card({status, name, cover, languages, errorMessage}: CardProps): JSX.El
         return <ReadyCard name={name} cover={cover} languages={languages} status={status}/>
     }
     else if (status === "transcribing"){
-        return <TranscribingCard name={name} cover={cover} languages={languages} status={status} />
+        return <TranscribingCard name={name} cover={cover} status={status} />
     }
     else{
-        return <ErrorCard />
+        return <ErrorCard name={name} cover={cover} errorMessage={errorMessage} status={status}/>
     }
 }
 
